@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/baizhi?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  #\u66FF\u6362\u4E3A
+mybatis-plus:
+  type-aliases-package: com.baizhi.entity
+  mapper-locations: classpath:com/baizhi/mapper/*Mapper.xml
+  #\u914D\u7F6E\u65E5\u5FD7\u5B9E\u73B0\uFF0C\u8F93\u51FA\u6267\u884C\u7684sql\u8BED\u53E5
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #\u5B9A\u4E49\u5168\u5C40\u7684\u5220\u9664\u7B56\u7565
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+server:
+  port: 8081
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
